@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple©</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="shortcut icon" type="imagex/png" href="assets/images/LOGO.png" />
+  </head>
+
+  <body>
+    <header class="cabec">
+      <div class="container">
+        <img class="logo" src="assets/images/LOGO.png" />
+        <h3>SIMPLE</h3>
+
+        <div>
+          <input type="checkbox" class="checkbox" id="chk" />
+          <label class="label" for="chk">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <div class="ball"></div>
+          </label>
+        </div>
+      </div>
+    </header>
+
+    <div class="adctarefa">
+      <button class="addbutton">
+        <img src="assets/images/plus-sm.svg" />Adicionar Tarefa
+      </button>
+    </div>
+
+    <div class="quadros">
+      <div class="lane dark" id="afazer">
+        <div class="titulo">
+          <img class="icons" src="assets/images/clipboard.svg" />
+          <h3 class="head">A Fazer</h3>
+        </div>
+        <hr class="linha" />
+
+        <div class="taskbox" draggable="true">
+          <div class="task-content"></div>
+          <input class="task input1" placeholder="Insira uma tarefa..." />
+
+          <ul class="menu">
+            <li>
+              <a href="#"
+                ><img src="assets/images/dots-horizontal.svg" alt=""
+              /></a>
+              <ul>
+                <li><a href="#">Excluir</a></li>
+                <li><a href="#">Editar</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lane dark">
+        <div class="titulo">
+          <img class="icons" src="assets/images/clipboard-list.svg" />
+          <h3 class="head">Em Progresso</h3>
+        </div>
+
+        <hr class="linha" />
+
+        <div class="taskbox" draggable="true">
+          <input class="task" placeholder="Título aqui..." />
+          <ul class="menu">
+            <li>
+              <a href="#"
+                ><img src="assets/images/dots-horizontal.svg" alt=""
+              /></a>
+              <ul>
+                <li><a href="#">Excluir</a></li>
+                <li><a href="#">Editar</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lane dark">
+        <div class="titulo">
+          <img class="icons" src="assets/images/clipboard-check.svg" />
+          <h3 class="head">Feito</h3>
+        </div>
+
+        <hr class="linha" />
+
+        <div class="taskbox" draggable="true">
+          <input class="task" placeholder="Título aqui..." />
+          <ul class="menu">
+            <li>
+              <a href="#"
+                ><img src="assets/images/dots-horizontal.svg" alt=""
+              /></a>
+              <ul>
+                <li><a href="#">Excluir</a></li>
+                <li><a href="#">Editar</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/scripts.js"></script>
+    <script
+      src="https://kit.fontawesome.com/998c60ef77.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
