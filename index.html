@@ -13,8 +13,7 @@
     <header class="cabec">
       <div class="container">
         <img class="logo" src="assets/images/LOGO.png" />
-        <h3>SIMPLE</h3>
-
+        <h2>SIMPLE</h2>
         <div>
           <input type="checkbox" class="checkbox" id="chk" />
           <label class="label" for="chk">
@@ -40,22 +39,25 @@
         </div>
         <hr class="linha" />
 
-        <div class="taskbox" draggable="true">
-          <div class="task-content"></div>
-          <input class="task input1" placeholder="Insira uma tarefa..." />
-
-          <ul class="menu">
-            <li>
-              <a href="#"
-                ><img src="assets/images/dots-horizontal.svg" alt=""
-              /></a>
-              <ul>
-                <li><a href="#">Excluir</a></li>
-                <li><a href="#">Editar</a></li>
-              </ul>
-            </li>
-          </ul>
+        <div class="taskbox">
+          <div class="task-content">
+            <input class="task to-do" placeholder="Insira uma tarefa..." />
+            <p class="error-message">Por favor, <br />insira uma tarefa!</p>
+            <ul class="menu">
+              <li>
+                <a href="#"
+                  ><img src="assets/images/dots-horizontal.svg" alt=""
+                /></a>
+                <ul>
+                  <li><a href="#">Excluir</a></li>
+                  <li><a href="#">Editar</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
+
+        <div class="tasks column"></div>
       </div>
 
       <div class="lane dark">
@@ -66,8 +68,8 @@
 
         <hr class="linha" />
 
-        <div class="taskbox" draggable="true">
-          <input class="task" placeholder="Título aqui..." />
+        <div class="taskbox">
+          <input class="task" placeholder="Insira uma tarefa..." />
           <ul class="menu">
             <li>
               <a href="#"
@@ -80,6 +82,7 @@
             </li>
           </ul>
         </div>
+        <div class="in-progress-tasks column"></div>
       </div>
 
       <div class="lane dark">
@@ -90,8 +93,8 @@
 
         <hr class="linha" />
 
-        <div class="taskbox" draggable="true">
-          <input class="task" placeholder="Título aqui..." />
+        <div class="taskbox">
+          <input class="task" placeholder="Insira uma tarefa..." />
           <ul class="menu">
             <li>
               <a href="#"
@@ -104,8 +107,10 @@
             </li>
           </ul>
         </div>
+        <div class="completed-taks column"></div>
       </div>
     </div>
+
     <script src="assets/js/scripts.js"></script>
     <script
       src="https://kit.fontawesome.com/998c60ef77.js"
