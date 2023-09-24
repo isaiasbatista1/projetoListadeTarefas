@@ -275,8 +275,60 @@ header .container {
 .icons {
   width: 10%;
 }
-
+.titulo{
+  display: flex;
+  flex-direction: row;
+}
+.titulo .head{
+  text-align: left;
+  width: 60%;
+}
 .titulo img {
   float: left;
   margin-right: 2%;
+}
+.titulo button{
+  float: right;
+  margin: 0 8.5%;
+}
+/*choose color*/
+.colorButton {
+  border-radius: 50%;
+  cursor: pointer;
+  height: 22px;
+  width: 22px;
+  border: 1px solid hsla(0, 0%, 50%, 0.164);
+  box-shadow: 0px 2px 0 rgba(0, 0, 0, 0.267), 2px 2px 6px rgba(0, 0, 0, 0.274);
+}
+.colorButton:hover{
+  height: 26px;
+  width: 26px;
+}
+.colorPicker {
+  animation: 0.6s ease 0s 1 slideInFromLeft;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  margin: 1% auto 0 auto;
+  height: 100%;
+  width: 100%;
+}
+.colorOption {
+  width: 14.5px;
+  height: 14.5px;
+  cursor: pointer;
+  border: none;
+  margin: 0.5%;
+  opacity: .6;
+}
+.colorOption:hover {
+  opacity: 1;
+}
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-20%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }

@@ -86,3 +86,46 @@ function getNewPosition(column, posY) {
   return result;
 }
 //...Mover tarefas
+//choose color
+document.querySelector('#colorButton1').addEventListener('click', function(){
+  let colorPicker = document.querySelector("#colorPicker1");
+  toogleColorPicker(colorPicker);
+})
+document.querySelector('#colorButton2').addEventListener('click', function(){
+  let colorPicker = document.querySelector("#colorPicker2");
+  toogleColorPicker(colorPicker);
+})
+document.querySelector('#colorButton3').addEventListener('click', function(){
+  let colorPicker = document.querySelector("#colorPicker3");
+  toogleColorPicker(colorPicker);
+})
+function toogleColorPicker(colorPicker) {
+  if(colorPicker.style.display === 'none'){
+    colorPicker.style.display = 'flex';
+    colorPicker.innerHTML = `
+      <div class="colorOption" style="background-color: red;"></div>
+      <div class="colorOption" style="background-color: #ff7c00;"></div>
+      <div class="colorOption" style="background-color: orange;"></div>
+      <div class="colorOption" style="background-color: #e5ec00;"></div>
+      <div class="colorOption" style="background-color: yellow;"></div>
+      <div class="colorOption" style="background-color: #91fd00;"></div>
+      <div class="colorOption" style="background-color: green;"></div>
+      <div class="colorOption" style="background-color: #00ec7a;"></div>
+      <div class="colorOption" style="background-color: blue;"></div>
+      <div class="colorOption" style="background-color: #6d00e6;"></div>
+      <div class="colorOption" style="background-color: purple;"></div>
+      <div class="colorOption" style="background-color: #8B0000;"></div>`
+    ;
+    let colorOptions = colorPicker.getElementsByClassName('colorOption');
+    for (let i = 0; i < colorOptions.length; i++) {
+      colorOptions[i].addEventListener('click', function(e){
+        let buttonId = colorPicker.id.replace('colorPicker', 'colorButton');
+        document.getElementById(buttonId).style.backgroundColor = e.target.style.backgroundColor;
+        colorPicker.style.display = 'none';
+      });
+    }
+  }else{
+    colorPicker.style.display = 'none';
+  }
+}
+//choose color
