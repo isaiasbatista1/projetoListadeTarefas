@@ -13,7 +13,8 @@
     <header class="cabec">
       <div class="container">
         <img class="logo" src="assets/images/LOGO.png" />
-        <h2>SIMPLE</h2>
+        <h3>SIMPLE</h3>
+
         <div>
           <input type="checkbox" class="checkbox" id="chk" />
           <label class="label" for="chk">
@@ -33,59 +34,16 @@
 
     <div class="quadros">
       <div class="lane dark" id="afazer">
-        <div class="titulo-container">
-          <div class="titulo">
-            <img class="icons" src="assets/images/clipboard.svg" />
-            <h3 class="head">A Fazer</h3>
-            <button id="colorButton1" class="colorButton"></button>
-          </div>
-          <div
-            id="colorPicker1"
-            class="colorPicker"
-            style="display: none"
-          ></div>
+        <div class="titulo">
+          <img class="icons" src="assets/images/clipboard.svg" />
+          <h3 class="head">A Fazer</h3>
         </div>
         <hr class="linha" />
 
-        <div class="taskbox">
-          <div class="task-content">
-            <input class="task to-do" placeholder="Insira uma tarefa..." />
-            <p class="error-message">Por favor, <br />insira uma tarefa!</p>
-            <ul class="menu">
-              <li>
-                <a href="#"
-                  ><img src="assets/images/dots-horizontal.svg" alt=""
-                /></a>
-                <ul>
-                  <li><a href="#">Excluir</a></li>
-                  <li><a href="#">Editar</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <div class="taskbox" draggable="true">
+          <div class="task-content"></div>
+          <input class="task input1" placeholder="Insira uma tarefa..." />
 
-        <div class="tasks column"></div>
-      </div>
-
-      <div class="lane dark">
-        <div class="titulo-container">
-          <div class="titulo">
-            <img class="icons" src="assets/images/clipboard-list.svg" />
-            <h3 class="head">Em Progresso</h3>
-            <button id="colorButton2" class="colorButton"></button>
-          </div>
-          <div
-            id="colorPicker2"
-            class="colorPicker"
-            style="display: none"
-          ></div>
-        </div>
-
-        <hr class="linha" />
-
-        <div class="taskbox">
-          <input class="task" placeholder="Insira uma tarefa..." />
           <ul class="menu">
             <li>
               <a href="#"
@@ -98,31 +56,18 @@
             </li>
           </ul>
         </div>
-        <div class="in-progress-tasks column"></div>
       </div>
 
       <div class="lane dark">
-        <div class="titulo-container">
-          <div class="titulo">
-            <img class="icons" src="assets/images/clipboard-check.svg" />
-            <h3 class="head">Feito</h3>
-
-            <button id="colorButton3" class="colorButton"></button>
-            <button id="clear-all" title="Limpar Tarefas">
-              <img src="assets/images/trash.svg" alt="" />
-            </button>
-          </div>
-          <div
-            id="colorPicker3"
-            class="colorPicker"
-            style="display: none"
-          ></div>
+        <div class="titulo">
+          <img class="icons" src="assets/images/clipboard-list.svg" />
+          <h3 class="head">Em Progresso</h3>
         </div>
 
         <hr class="linha" />
 
-        <div class="taskbox">
-          <input class="task" placeholder="Insira uma tarefa..." />
+        <div class="taskbox" draggable="true">
+          <input class="task" placeholder="Título aqui..." />
           <ul class="menu">
             <li>
               <a href="#"
@@ -135,10 +80,32 @@
             </li>
           </ul>
         </div>
-        <div class="completed-taks column"></div>
+      </div>
+
+      <div class="lane dark">
+        <div class="titulo">
+          <img class="icons" src="assets/images/clipboard-check.svg" />
+          <h3 class="head">Feito</h3>
+        </div>
+
+        <hr class="linha" />
+
+        <div class="taskbox" draggable="true">
+          <input class="task" placeholder="Título aqui..." />
+          <ul class="menu">
+            <li>
+              <a href="#"
+                ><img src="assets/images/dots-horizontal.svg" alt=""
+              /></a>
+              <ul>
+                <li><a href="#">Excluir</a></li>
+                <li><a href="#">Editar</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-
     <script src="assets/js/scripts.js"></script>
     <script
       src="https://kit.fontawesome.com/998c60ef77.js"
