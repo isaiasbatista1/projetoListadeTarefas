@@ -332,3 +332,7 @@ header .container {
     transform: translateX(0);
   }
 }
+.titulo-container{
+  display: grid;
+  grid-template-rows: repeat(2,1fr);
+}

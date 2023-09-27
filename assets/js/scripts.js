@@ -129,3 +129,35 @@ function toogleColorPicker(colorPicker) {
   }
 }
 //choose color
+
+function adicionarTarefa() {
+  const tarefa = document.querySelector(".to-do").value;
+
+  if (tarefa.trim() === "") {
+    errorMessage.style.display = "block";
+    return;
+  }
+
+  errorMessage.style.display = "none";
+  tarefas.push(tarefa);
+
+  const divTaskBox = document.querySelector(".taskbox").cloneNode(true);
+  const paragrafo = document.createElement("p");
+  paragrafo.textContent = tarefa;
+
+  // Obter a data atual
+  const dataAtual = new Date();
+  const dataFormatada = `${dataAtual.toLocaleDateString()} - ${dataAtual.toLocaleTimeString()}`;
+  const spanData = divTaskBox.querySelector(".task-date");
+  spanData.textContent = dataFormatada;
+
+  divTaskBox.classList.add("added");
+  divTaskBox.setAttribute("draggable", true);
+
+  divTaskBox.querySelector(".task").remove();
+  divTaskBox.querySelector(".task-content").appendChild(paragrafo);
+
+  document.querySelector(".tasks").appendChild(divTaskBox);
+
+  document.querySelector(".to-do").value = "";
+}
