@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+body {
+  background: linear-gradient(180deg, #eaeaea 75.99%, #fff 100%) fixed;
+  height: 100%;
+  animation: fadeInAnimation ease 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
 header {
   display: flex;
   justify-items: end;
@@ -11,6 +19,26 @@ header {
   height: 12vh;
   color: #eaeaea;
   box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.3);
+}
+
+header .container {
+  width: 100%;
+  max-width: 75%;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin: auto;
+}
+
+.titulo-container {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+}
+
+h2 {
+  font-family: "Cabin";
+  src: url(/FONTES/Cabin-VariableFont_wdth\,wght.ttf);
+  padding: 2%;
 }
 
 header.light {
@@ -34,7 +62,6 @@ body.dark {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 5px;
   position: relative;
   height: 26px;
@@ -58,10 +85,7 @@ body.dark {
   transform: translateX(24px);
 }
 
-.fa-moon {
-  color: #212b38;
-}
-
+.fa-moon,
 .fa-sun {
   color: #212b38;
 }
@@ -71,23 +95,22 @@ body.dark {
   flex-direction: column;
   gap: 15px;
   font-family: "Cabin";
-
   background: #ffffff;
   box-shadow: 0px 3px 20px rgba(22, 22, 22, 0.1);
-
   padding: 2%;
   border-radius: 20px;
   width: 25%;
   min-height: 120px;
-
   flex-shrink: 0;
+  
+  /* modificação (limitar o tamanho do container) */
+  max-height: 645px;
 }
 
 .quadros {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  overflow: scroll;
   padding: 30px 32px;
   height: 100%;
   gap: 2%;
@@ -99,30 +122,60 @@ body.dark {
   color: black;
   width: 80%;
   border: none;
-  overflow: scroll;
-
   padding: 12px;
-
   font-size: 16px;
   cursor: text;
-  overflow: hidden;
+}
+
+.error-message {
+  display: none;
+  background-color: red;
+  position: absolute;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+  padding: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 0.8rem !important;
+}
+
+.error-message::after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-left: 7px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 20px solid red;
+  top: -20px;
+  left: 8%;
 }
 
 .taskbox {
   width: 100%;
-  min-height: 15vh;
-  height: auto;
+  min-height: 9vh;
   background-color: #f2f2f2;
   border-radius: 4px;
   box-shadow: 0px 3px 5px rgba(22, 22, 22, 0.15);
-  cursor: move;
-  padding-bottom: 4%;
+  cursor: pointer;
+  white-space: wrap;
+  padding: 15px;
+  padding-bottom: 18px;
+}
+
+
+/* modificações (span sendo inserido pelo js -  para data e hora)*/
+.task-date {
+  font-size: 0.8rem;
+  margin-left: 4%;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .taskbox p {
-    margin-left: 4%;
-    font-size: 1.2rem;
-    margin-top: 10px;
+  margin-left: 4%;
+  font-size: 1.2rem;
+  margin-top: 10px;
 }
 
 .menu {
@@ -160,15 +213,10 @@ body.dark {
   display: none;
 }
 
-.menu li:hover ul,
-.menu li.over ul {
-  display: block;
-}
-
-h3 {
-  font-family: "Cabin";
-  src: url(/FONTES/Cabin-VariableFont_wdth\,wght.ttf);
-  padding: 2%;
+.menu li:hover ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .linha {
@@ -176,7 +224,7 @@ h3 {
 }
 
 .adctarefa {
-  margin-top: 6vh;
+  margin-top: 3vh;
 }
 
 .addbutton {
@@ -204,12 +252,20 @@ h3 {
   opacity: 60%;
 }
 
-body {
-  background: linear-gradient(180deg, #eaeaea 75.99%, #fff 100%) fixed;
-  height: 100%;
-  animation: fadeInAnimation ease 0.5s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+.tasks,
+.column {
+  background-color: hsla(0, 0%, 92%, 0.253);
+  height: auto;
+  min-height: 9vh;
+  width: 100%;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  
+  /* modificações (inserindo barra de rolagem)*/
+  max-height: 640px;
+  overflow-y: auto;
 }
 
 @keyframes fadeInAnimation {
@@ -222,15 +278,6 @@ body {
   }
 }
 
-header .container {
-  width: 100%;
-  max-width: 75%;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  margin: auto;
-}
-
 .logo {
   width: 3%;
 }
@@ -239,7 +286,82 @@ header .container {
   width: 10%;
 }
 
+.titulo {
+  display: flex;
+  flex-direction: row;
+}
+
+.titulo .head {
+  text-align: left;
+  width: 60%;
+}
+
 .titulo img {
   float: left;
   margin-right: 2%;
 }
+
+.titulo button {
+  float: right;
+  margin: 0 8.5%;
+}
+
+.colorButton {
+  border-radius: 50%;
+  cursor: pointer;
+  height: 22px;
+  width: 22px;
+  border: 1px solid hsla(0, 0%, 50%, 0.164);
+  box-shadow: 3px 3px 8px rgba(22, 22, 22, 0.2);
+}
+
+.colorButton:hover {
+  height: 26px;
+  width: 26px;
+}
+
+.colorPicker {
+  animation: 0.6s ease 0s 1 slideInFromLeft;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  margin: 1% auto 0 auto;
+  height: 100%;
+  width: 100%;
+}
+
+.colorOption {
+  width: 14.5px;
+  height: 14.5px;
+  cursor: pointer;
+  border: none;
+  margin: 0.5%;
+  opacity: 0.6;
+}
+
+.colorOption:hover {
+  opacity: 1;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-20%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* lixeira temporária(teste) */
+#clear-all {
+  width: 35px;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  position: absolute;
+}
+
+
+
+
+
