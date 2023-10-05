@@ -145,7 +145,13 @@ setupColorPicker("#colorButton2", "#colorPicker2");
 setupColorPicker("#colorButton3", "#colorPicker3");
 // ...Escolher cor
 
-
+document.addEventListener("click", (e) => {
+  const targetEl = e.target;
+  const parentEl = targetEl.closest(".taskbox");
+  if (targetEl.classList.contains("excluir")) {
+    parentEl.remove();
+}
+});
 
 //Limpar tarefas concluídas(temporário)
 const limparFeitoButton = document.getElementById("clear-all");
