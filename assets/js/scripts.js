@@ -21,7 +21,7 @@ function adicionarTarefa() {
   const tarefa = document.querySelector(".to-do").value;
 
   if (tarefa.trim() === "") {
-    errorMessage.style.display = "block";
+    errorMessage.style.display = "block"; 
     return;
   }
 
@@ -30,7 +30,9 @@ function adicionarTarefa() {
 
   const divTaskBox = document.querySelector(".taskbox").cloneNode(true);
   const paragrafo = document.createElement("p");
+  paragrafo.setAttribute("id", "meuId");
   paragrafo.textContent = tarefa;
+  // Adicionar tarefas...
 
   //Inserir data e hora...
   const spanData = document.createElement("span");
@@ -58,9 +60,7 @@ function adicionarTarefa() {
 
   document.querySelector(".to-do").value = "";
 }
-//...Inserir data e hora
-
-// ...Adicionar tarefas
+//Inserir data e hora...
 
 // Mover tarefas...
 const columns = document.querySelectorAll(".column");
@@ -145,17 +145,38 @@ setupColorPicker("#colorButton2", "#colorPicker2");
 setupColorPicker("#colorButton3", "#colorPicker3");
 // ...Escolher cor
 
-document.addEventListener("click", (e) => {
-  const targetEl = e.target;
-  const parentEl = targetEl.closest(".taskbox");
-  if (targetEl.classList.contains("excluir")) {
-    parentEl.remove();
-}
-});
-
 //Limpar tarefas concluídas(temporário)
 const limparFeitoButton = document.getElementById("clear-all");
 limparFeitoButton.addEventListener("click", () => {
   const completedTasksDiv = document.querySelector(".completed-taks");
   completedTasksDiv.textContent = "";
 });
+
+//Remover e Editar Tarefa
+document.addEventListener("click", (e) => {
+  const targetEl = e.target;
+  const parentEl = targetEl.closest(".taskbox");
+
+  if (targetEl.classList.contains("excluir")) {
+    parentEl.remove();
+  } else if (targetEl.classList.contains("editar")) {
+    const paragrafo = parentEl.querySelector("p#meuId");
+
+    const input = document.createElement("input");
+    input.setAttribute("type", "text");
+    input.value = paragrafo.textContent;
+    //Remover e Editar Tarefa
+
+    // Substituir o parágrafo pelo input para edição.
+    parentEl.querySelector(".task-content").replaceChild(input, paragrafo);
+
+    // Adicionar um evento de tecla para salvar a edição quando pressionar Enter.
+    input.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        paragrafo.textContent = input.value;
+        parentEl.querySelector(".task-content").replaceChild(paragrafo, input);
+      }
+    });
+  }
+});
+
