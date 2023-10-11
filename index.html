@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simple©</title>
     <link rel="stylesheet" href="assets/css/styles.css" />
-    <link rel="shortcut icon" type="imagex/png" href="assets/images/LOGO.png" />
+    <link rel="shortcut icon" type="image/png" href="assets/images/LOGO.png" />
   </head>
 
   <body>
@@ -35,8 +35,10 @@
       <div class="lane dark" id="afazer">
         <div class="titulo-container">
           <div class="titulo">
-            <img class="icons" src="assets/images/clipboard.svg" />
-            <h3 class="head">A Fazer</h3>
+            <div class="left">
+              <img class="icons" src="assets/images/clipboard.svg" />
+              <h3 class="head">A Fazer</h3>
+            </div>
             <button id="colorButton1" class="colorButton"></button>
           </div>
           <div
@@ -46,33 +48,23 @@
           ></div>
         </div>
         <hr class="linha" />
-
         <div class="taskbox">
           <div class="task-content">
-            <input class="task to-do" placeholder="Insira uma tarefa..." />
+            <input type="text" class="task to-do" placeholder="Insira uma tarefa..." />
             <p class="error-message">Por favor, <br />insira uma tarefa!</p>
-            <ul class="menu">
-              <li>
-                <a href="#"
-                  ><img src="assets/images/dots-horizontal.svg" alt=""
-                /></a>
-                <ul>
-                  <li><a class="excluir" href="#">Excluir</a></li>
-                  <li><a class="editar" href="#">Editar</a></li>
-                </ul>
-              </li>
-            </ul>
           </div>
         </div>
 
         <div class="tasks column"></div>
       </div>
 
-      <div class="lane dark">
+      <div class="lane dark" id="em-progresso">
         <div class="titulo-container">
           <div class="titulo">
-            <img class="icons" src="assets/images/clipboard-list.svg" />
-            <h3 class="head">Em Progresso</h3>
+            <div class="left">
+              <img class="icons" src="assets/images/clipboard-list.svg" />
+              <h3 class="head">Em Progresso</h3>
+            </div>
             <button id="colorButton2" class="colorButton"></button>
           </div>
           <div
@@ -86,31 +78,23 @@
 
         <div class="taskbox">
           <input class="task" placeholder="Insira uma tarefa..." />
-          <ul class="menu">
-            <li>
-              <a href="#"
-                ><img src="assets/images/dots-horizontal.svg" alt=""
-              /></a>
-              <ul>
-                <li><a href="#">Excluir</a></li>
-                <li><a href="#">Editar</a></li>
-              </ul>
-            </li>
-          </ul>
         </div>
         <div class="in-progress-tasks column"></div>
       </div>
 
-      <div class="lane dark">
+      <div class="lane dark" id="feito">
         <div class="titulo-container">
           <div class="titulo">
-            <img class="icons" src="assets/images/clipboard-check.svg" />
-            <h3 class="head">Feito</h3>
-
-            <button id="colorButton3" class="colorButton"></button>
-            <button id="clear-all" title="Limpar Tarefas">
-              <img src="assets/images/trash.svg" alt="" />
-            </button>
+            <div class="left">
+              <img class="icons" src="assets/images/clipboard-check.svg" />
+              <h3 class="head">Feito</h3>
+            </div>
+            <div class="btns">
+              <button id="colorButton3" class="colorButton"></button>
+              <button id="clear-all" title="Limpar Tarefas">
+                <img src="assets/images/trash.svg" alt="" />
+              </button>
+            </div>
           </div>
           <div
             id="colorPicker3"
@@ -123,17 +107,6 @@
 
         <div class="taskbox">
           <input class="task" placeholder="Insira uma tarefa..." />
-          <ul class="menu">
-            <li>
-              <a href="#"
-                ><img src="assets/images/dots-horizontal.svg" alt=""
-              /></a>
-              <ul>
-                <li><a href="#">Excluir</a></li>
-                <li><a href="#">Editar</a></li>
-              </ul>
-            </li>
-          </ul>
         </div>
         <div class="completed-taks column"></div>
       </div>

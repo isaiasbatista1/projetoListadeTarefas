@@ -32,7 +32,6 @@ function adicionarTarefa() {
   const paragrafo = document.createElement("p");
   paragrafo.setAttribute("id", "meuId");
   paragrafo.textContent = tarefa;
-  // Adicionar tarefas...
 
   const menu = document.createElement("ul");
   menu.classList.add("menu");
