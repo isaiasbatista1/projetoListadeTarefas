@@ -39,6 +39,8 @@ h2 {
   font-family: "Cabin";
   src: url(/FONTES/Cabin-VariableFont_wdth\,wght.ttf);
   padding: 2%;
+  font-size: 1.5rem;
+
 }
 
 header.light {
@@ -102,8 +104,6 @@ body.dark {
   width: 25%;
   min-height: 120px;
   flex-shrink: 0;
-  
-  /* modificação (limitar o tamanho do container) */
   max-height: 645px;
 }
 
@@ -121,10 +121,15 @@ body.dark {
   background: #f2f2f2;
   color: black;
   width: 80%;
-  border: none;
+  border: 0;
+  outline: none;
   padding: 12px;
-  font-size: 16px;
+  font-size: 1rem;
   cursor: text;
+}
+
+.task:focus {
+  border: 1px solid rgba(117, 117, 117, 0.301);
 }
 
 .error-message {
@@ -153,19 +158,15 @@ body.dark {
 }
 
 .taskbox {
+  background-color: #f2f2f2;
   width: 100%;
   min-height: 9vh;
-  background-color: #f2f2f2;
   border-radius: 4px;
   box-shadow: 0px 3px 5px rgba(22, 22, 22, 0.15);
-  cursor: pointer;
-  white-space: wrap;
   padding: 15px;
   padding-bottom: 18px;
 }
 
-
-/* modificações (span sendo inserido pelo js -  para data e hora)*/
 .task-date {
   font-size: 0.8rem;
   margin-left: 4%;
@@ -225,6 +226,7 @@ body.dark {
 
 .adctarefa {
   margin-top: 3vh;
+  display: flex;
 }
 
 .addbutton {
@@ -256,16 +258,14 @@ body.dark {
 .column {
   background-color: hsla(0, 0%, 92%, 0.253);
   height: auto;
-  min-height: 9vh;
+  min-height: 8.5vh;
   width: 100%;
   border-radius: 4px;
+  box-shadow: 0px 3px 5px rgba(22, 22, 22, 0.15);
   display: flex;
   flex-direction: column;
   gap: 15px;
-  
-  /* modificações (inserindo barra de rolagem)*/
   max-height: 640px;
-  overflow-y: auto;
 }
 
 @keyframes fadeInAnimation {
@@ -279,31 +279,33 @@ body.dark {
 }
 
 .logo {
-  width: 3%;
+  width: 2.4rem;
 }
 
-.icons {
+.left.icons {
   width: 10%;
 }
 
 .titulo {
   display: flex;
   flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
 }
 
-.titulo .head {
+.titulo .left {
+  display: flex;
+  align-items: center;
+}
+
+.titulo.left .head {
   text-align: left;
   width: 60%;
 }
 
-.titulo img {
+.titulo.left  img {
   float: left;
   margin-right: 2%;
-}
-
-.titulo button {
-  float: right;
-  margin: 0 8.5%;
 }
 
 .colorButton {
@@ -354,14 +356,46 @@ body.dark {
 
 /* lixeira temporária(teste) */
 #clear-all {
-  width: 35px;
+  width: 25px;
   border: 0;
   background-color: transparent;
   cursor: pointer;
   position: absolute;
+  top: 40px;
 }
 
+.btns {
+  flex-direction: column;
+  display: flex;
+  gap: 10px;
+  position: relative;
+}
+/* lixeira temporária(teste) */
 
+@media screen and (max-width: 1130px) {
+  .lane {
+    flex-grow: 1;
+  }
 
+}
 
+@media screen and (max-width: 866px) {
+  .quadros {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .lane {
+    margin-bottom: 20px; 
+    max-width: 390px;
+    flex-basis: 254px;
+    flex-grow: 2;
+  }
+}
+
+@media screen and (max-width: 592px) {
+  .lane {
+    width: 100%;
+  }
+}
 

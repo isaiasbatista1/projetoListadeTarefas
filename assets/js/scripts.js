@@ -21,7 +21,7 @@ function adicionarTarefa() {
   const tarefa = document.querySelector(".to-do").value;
 
   if (tarefa.trim() === "") {
-    errorMessage.style.display = "block";
+    errorMessage.style.display = "block"; 
     return;
   }
 
@@ -30,7 +30,44 @@ function adicionarTarefa() {
 
   const divTaskBox = document.querySelector(".taskbox").cloneNode(true);
   const paragrafo = document.createElement("p");
+  paragrafo.setAttribute("id", "meuId");
   paragrafo.textContent = tarefa;
+
+  const menu = document.createElement("ul");
+  menu.classList.add("menu");
+
+  const menuItem = document.createElement("li");
+  const menuLink = document.createElement("a");
+  menuLink.setAttribute("href", "#");
+  const menuDotsIcon = document.createElement("img");
+  menuDotsIcon.setAttribute("src", "assets/images/dots-horizontal.svg");
+  menuDotsIcon.setAttribute("alt", "");
+  menuLink.appendChild(menuDotsIcon);
+  menuItem.appendChild(menuLink);
+
+  const subMenu = document.createElement("ul");
+  const excluirItem = document.createElement("li");
+  const editarItem = document.createElement("li");
+
+  const excluirLink = document.createElement("a");
+  excluirLink.classList.add("excluir");
+  excluirLink.setAttribute("href", "#");
+  excluirLink.textContent = "Excluir";
+
+  const editarLink = document.createElement("a");
+  editarLink.classList.add("editar");
+  editarLink.setAttribute("href", "#");
+  editarLink.textContent = "Editar";
+
+  excluirItem.appendChild(excluirLink);
+  editarItem.appendChild(editarLink);
+
+  subMenu.appendChild(excluirItem);
+  subMenu.appendChild(editarItem);
+
+  menuItem.appendChild(subMenu);
+  menu.appendChild(menuItem);
+  // Adicionar tarefas...
 
   //Inserir data e hora...
   const spanData = document.createElement("span");
@@ -52,15 +89,15 @@ function adicionarTarefa() {
   divTaskBox.querySelector(".task").remove();
 
   divTaskBox.querySelector(".task-content").appendChild(spanData);
+  divTaskBox.querySelector(".task-content").appendChild(menu);
   divTaskBox.querySelector(".task-content").appendChild(paragrafo);
+
 
   document.querySelector(".tasks").appendChild(divTaskBox);
 
   document.querySelector(".to-do").value = "";
 }
-//...Inserir data e hora
-
-// ...Adicionar tarefas
+//Inserir data e hora...
 
 // Mover tarefas...
 const columns = document.querySelectorAll(".column");
@@ -145,11 +182,38 @@ setupColorPicker("#colorButton2", "#colorPicker2");
 setupColorPicker("#colorButton3", "#colorPicker3");
 // ...Escolher cor
 
-
-
 //Limpar tarefas concluídas(temporário)
 const limparFeitoButton = document.getElementById("clear-all");
 limparFeitoButton.addEventListener("click", () => {
   const completedTasksDiv = document.querySelector(".completed-taks");
   completedTasksDiv.textContent = "";
 });
+
+//Remover e Editar Tarefa
+document.addEventListener("click", (e) => {
+  const targetEl = e.target;
+  const parentEl = targetEl.closest(".taskbox");
+
+  if (targetEl.classList.contains("excluir")) {
+    parentEl.remove();
+  } else if (targetEl.classList.contains("editar")) {
+    const paragrafo = parentEl.querySelector("p#meuId");
+
+    const input = document.createElement("input");
+    input.setAttribute("type", "text");
+    input.value = paragrafo.textContent;
+    //Remover e Editar Tarefa
+
+    // Substituir o parágrafo pelo input para edição.
+    parentEl.querySelector(".task-content").replaceChild(input, paragrafo);
+
+    // Adicionar um evento de tecla para salvar a edição quando pressionar Enter.
+    input.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        paragrafo.textContent = input.value;
+        parentEl.querySelector(".task-content").replaceChild(paragrafo, input);
+      }
+    });
+  }
+});
+
