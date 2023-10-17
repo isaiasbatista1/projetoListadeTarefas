@@ -21,7 +21,7 @@ function adicionarTarefa() {
   const tarefa = document.querySelector(".to-do").value;
 
   if (tarefa.trim() === "") {
-    errorMessage.style.display = "block"; 
+    errorMessage.style.display = "block";
     return;
   }
 
@@ -217,3 +217,16 @@ document.addEventListener("click", (e) => {
   }
 });
 
+//Pop-up inicial
+
+window.addEventListener("load", function () {
+  setTimeout(
+    function open(event) {
+      document.querySelector(".popup").style.display = "block";
+    },
+    1000
+  )
+});
+document.querySelector("#close").addEventListener("click", function () {
+  document.querySelector(".popup").style.display = "none";
+});

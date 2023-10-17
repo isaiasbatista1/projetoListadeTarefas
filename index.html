@@ -1,121 +1,131 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simple©</title>
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <link rel="shortcut icon" type="image/png" href="assets/images/LOGO.png" />
-  </head>
 
-  <body>
-    <header class="cabec">
-      <div class="container">
-        <img class="logo" src="assets/images/LOGO.png" />
-        <h2>SIMPLE</h2>
-        <div>
-          <input type="checkbox" class="checkbox" id="chk" />
-          <label class="label" for="chk">
-            <i class="fas fa-moon"></i>
-            <i class="fas fa-sun"></i>
-            <div class="ball"></div>
-          </label>
-        </div>
-      </div>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple©</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="shortcut icon" type="image/png" href="assets/images/LOGO.png" />
+</head>
 
-    <div class="adctarefa">
-      <button class="addbutton">
-        <img src="assets/images/plus-sm.svg" />Adicionar Tarefa
-      </button>
+<body>
+
+  <div class="popup">
+    <button id="close">&times;</button>
+    <h2 class="titulos">Bem-vindo ao <span style="color:#08c6ab;">Simple</span>!</h2>
+    <p>
+      Um projeto de lista de lista de tarefas desenvolvido durante o curso "<span style="color:#55867f">Formação
+        acelerada em programação</span>"
+      oferecido pela Softex Pernambuco. Obrigado, esperamos que gostem!
+    </p>
+    <h6 class="titulos"> Desenvolvedores:</h6>
+    <div id="devs">
+      <a id="links_devs" href="https://github.com/isaiasbatista1" target="_blank">Isaias Batista</a> |
+      <a id="links_devs" href="https://github.com/Lincvasc" target="_blank">Linconl Vasc.</a> |
+      <a id="links_devs" href="https://github.com/pedrolaelbzr" target="_blank">Pedro Lael</a> |
+      <a id="links_devs" href="https://github.com/Geovane-Pedro" target="_blank">Geovanne Pedro</a> |
+      <a id="links_devs" href="https://github.com/alucardedson" target="_blank">Edson Batista</a>
+
+      <br>
+
+      <br>
+
+      <h4 class="titulos"> Tutor:</h4>
+
+      <a id="links_devs" href="https://github.com/reydne" target="_blank">Reydne Bruno</a>
+
     </div>
+  </div>
 
-    <div class="quadros">
-      <div class="lane dark" id="afazer">
-        <div class="titulo-container">
-          <div class="titulo">
-            <div class="left">
-              <img class="icons" src="assets/images/clipboard.svg" />
-              <h3 class="head">A Fazer</h3>
-            </div>
-            <button id="colorButton1" class="colorButton"></button>
-          </div>
-          <div
-            id="colorPicker1"
-            class="colorPicker"
-            style="display: none"
-          ></div>
-        </div>
-        <hr class="linha" />
-        <div class="taskbox">
-          <div class="task-content">
-            <input type="text" class="task to-do" placeholder="Insira uma tarefa..." />
-            <p class="error-message">Por favor, <br />insira uma tarefa!</p>
-          </div>
-        </div>
-
-        <div class="tasks column"></div>
-      </div>
-
-      <div class="lane dark" id="em-progresso">
-        <div class="titulo-container">
-          <div class="titulo">
-            <div class="left">
-              <img class="icons" src="assets/images/clipboard-list.svg" />
-              <h3 class="head">Em Progresso</h3>
-            </div>
-            <button id="colorButton2" class="colorButton"></button>
-          </div>
-          <div
-            id="colorPicker2"
-            class="colorPicker"
-            style="display: none"
-          ></div>
-        </div>
-
-        <hr class="linha" />
-
-        <div class="taskbox">
-          <input class="task" placeholder="Insira uma tarefa..." />
-        </div>
-        <div class="in-progress-tasks column"></div>
-      </div>
-
-      <div class="lane dark" id="feito">
-        <div class="titulo-container">
-          <div class="titulo">
-            <div class="left">
-              <img class="icons" src="assets/images/clipboard-check.svg" />
-              <h3 class="head">Feito</h3>
-            </div>
-            <div class="btns">
-              <button id="colorButton3" class="colorButton"></button>
-              <button id="clear-all" title="Limpar Tarefas">
-                <img src="assets/images/trash.svg" alt="" />
-              </button>
-            </div>
-          </div>
-          <div
-            id="colorPicker3"
-            class="colorPicker"
-            style="display: none"
-          ></div>
-        </div>
-
-        <hr class="linha" />
-
-        <div class="taskbox">
-          <input class="task" placeholder="Insira uma tarefa..." />
-        </div>
-        <div class="completed-taks column"></div>
+  <header class="cabec">
+    <div class="container">
+      <img class="logo" src="assets/images/LOGO.png" />
+      <h2>SIMPLE</h2>
+      <div>
+        <input type="checkbox" class="checkbox" id="chk" />
+        <label class="label" for="chk">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+          <div class="ball"></div>
+        </label>
       </div>
     </div>
+  </header>
 
-    <script src="assets/js/scripts.js"></script>
-    <script
-      src="https://kit.fontawesome.com/998c60ef77.js"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+  <div class="adctarefa">
+    <button class="addbutton">
+      <img src="assets/images/plus-sm.svg" />Adicionar Tarefa
+    </button>
+  </div>
+
+  <div class="quadros">
+    <div class="lane dark" id="afazer">
+      <div class="titulo-container">
+        <div class="titulo">
+          <div class="left">
+            <img class="icons" src="assets/images/clipboard.svg" />
+            <h3 class="head">A Fazer</h3>
+          </div>
+          <button id="colorButton1" class="colorButton"></button>
+        </div>
+        <div id="colorPicker1" class="colorPicker" style="display: none"></div>
+      </div>
+      <hr class="linha" />
+      <div class="taskbox">
+        <div class="task-content">
+          <input type="text" class="task to-do" placeholder="Insira uma tarefa..." />
+          <p class="error-message">Por favor, <br />insira uma tarefa!</p>
+        </div>
+      </div>
+
+      <div class="tasks column"></div>
+    </div>
+
+    <div class="lane dark" id="em-progresso">
+      <div class="titulo-container">
+        <div class="titulo">
+          <div class="left">
+            <img class="icons" src="assets/images/clipboard-list.svg" />
+            <h3 class="head">Em Progresso</h3>
+          </div>
+          <button id="colorButton2" class="colorButton"></button>
+        </div>
+        <div id="colorPicker2" class="colorPicker" style="display: none"></div>
+      </div>
+
+      <hr class="linha" />
+
+  
+      <div class="in-progress-tasks column"></div>
+    </div>
+
+    <div class="lane dark" id="feito">
+      <div class="titulo-container">
+        <div class="titulo">
+          <div class="left">
+            <img class="icons" src="assets/images/clipboard-check.svg" />
+            <h3 class="head">Feito</h3>
+          </div>
+          <div class="btns">
+            <button id="colorButton3" class="colorButton"></button>
+            <button id="clear-all" title="Limpar Tarefas">
+              <img src="assets/images/trash.svg" alt="" />
+            </button>
+          </div>
+        </div>
+        <div id="colorPicker3" class="colorPicker" style="display: none"></div>
+      </div>
+
+      <hr class="linha" />
+
+      <div class="completed-taks column"></div>
+    </div>
+  </div>
+
+  <script src="assets/js/scripts.js"></script>
+  <script src="https://kit.fontawesome.com/998c60ef77.js" crossorigin="anonymous"></script>
+</body>
+
 </html>
